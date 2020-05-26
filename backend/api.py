@@ -1,4 +1,4 @@
-import time
+from datetime import datetime
 from flask import Flask
 
 app = Flask(__name__)
@@ -6,4 +6,5 @@ app = Flask(__name__)
 
 @app.route('/time')
 def get_current_time():
-    return {'time': time.time()}
+    format = '{%H:%M:%S}'
+    return {'time': str(datetime.now().strftime(format))}
